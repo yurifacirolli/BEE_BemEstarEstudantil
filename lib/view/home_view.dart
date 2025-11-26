@@ -107,7 +107,7 @@ class HomeView extends StatelessWidget {
                           height: 150,
                           fit: BoxFit.cover,
                           image: AssetImage(feature.image),
-                          // Em caso de erro ao carregar a imagem, mostra um ícone
+                          //Em caso de erro ao carregar a imagem, mostra um ícone
                           onImageError: (exception, stackTrace) => const Center(
                             child: Icon(Icons.image_not_supported, size: 40, color: Colors.grey),
                           ),

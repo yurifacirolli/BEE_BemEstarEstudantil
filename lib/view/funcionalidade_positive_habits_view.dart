@@ -54,7 +54,7 @@ class _FuncionalidadePositiveHabitsViewState
                 controller.addSuggestedHabit(suggestion);
               },
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 48), // Ocupa toda a largura
+                minimumSize: const Size(double.infinity, 48),
                 textStyle: const TextStyle(fontSize: 16),
               ),
             ),

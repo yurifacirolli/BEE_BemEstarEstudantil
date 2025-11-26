@@ -17,7 +17,7 @@ class _FuncionalidadeMoodTrackerViewState extends State<FuncionalidadeMoodTracke
   @override
   void initState() {
     super.initState();
-    _controller.resetState(); // Reseta o estado para garantir que comece limpo.
+    _controller.resetState(); 
   }
 
   @override
@@ -56,7 +56,7 @@ class _FuncionalidadeMoodTrackerViewState extends State<FuncionalidadeMoodTracke
             ),
           ],
         ),
-        // Consumer reconstrói a UI quando o controller notifica mudanças
+      
         body: Consumer<MoodTrackerController>(
           builder: (context, controller, child) {
             return SingleChildScrollView(

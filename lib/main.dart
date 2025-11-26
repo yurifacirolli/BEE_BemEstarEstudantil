@@ -45,14 +45,12 @@ void setupLocator() {
 }
 
 void main() async {
-  // Garante que o Flutter esteja inicializado antes de usar plugins.
   WidgetsFlutterBinding.ensureInitialized();
-  // Inicializa o Firebase com as configurações da plataforma atual.
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupLocator();
   runApp(
     DevicePreview(
-      // Habilita o Device Preview apenas em modo de debug (desenvolvimento).
+      // bilita o Device Preview apenas em modo de debug (desenvolvimento).
       enabled: !kReleaseMode,
       builder: (context) => const MainApp(),
     ),
@@ -74,7 +72,7 @@ class MainApp extends StatelessWidget {
           backgroundColor: Color(0xFFE3DECC),
         ),
       ),
-      // Define as rotas do aplicativo
+      //define as rotas do aplicativo
       routes: {
         '/': (context) => const SplashScreen(),
         '/login': (context) => const LoginView(),
@@ -96,7 +94,7 @@ class MainApp extends StatelessWidget {
               child: const FuncionalidadePositiveHabitsView(),
             ),
       },
-      initialRoute: '/', // A rota inicial é a splash screen
+      initialRoute: '/', // rota inicial é a splash screen
     );
   }
 }

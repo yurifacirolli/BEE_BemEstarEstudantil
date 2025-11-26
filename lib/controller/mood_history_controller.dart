@@ -24,8 +24,6 @@ class MoodHistoryController extends ChangeNotifier {
       .collection('registros_humor')
       .where('userId', isEqualTo: user.uid);
 
-    // A ordenação principal por data ainda é feita no Firestore para otimização.
-    // A ordenação ascendente/descendente será tratada no cliente se necessário.
     return query.orderBy('timestamp', descending: true).snapshots();
   }
 
@@ -43,9 +41,9 @@ class MoodHistoryController extends ChangeNotifier {
     }
   }
 
-  /// Filtra e ordena a lista de documentos com base nos critérios atuais.
+  ///filtra e ordena a lista de documentos com base nos critérios atuais.
   List<QueryDocumentSnapshot> filterAndSortEntries(List<QueryDocumentSnapshot> entries) {
-    // Mapa para traduzir emoji para o nome do humor para a pesquisa.
+    //Mapa para traduzir emoji para o nome do humor para a pesquisa.
     const moodNameMap = {
       '😄': 'feliz',
       '🙂': 'bem',

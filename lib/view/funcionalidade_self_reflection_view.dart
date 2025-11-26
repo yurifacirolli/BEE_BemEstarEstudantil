@@ -17,7 +17,6 @@ class _FuncionalidadeSelfReflectionViewState extends State<FuncionalidadeSelfRef
   @override
   void initState() {
     super.initState();
-    // Reseta o estado do controlador para garantir que comece limpo.
     _controller.resetState();
     _controller.addListener(() {
       if (mounted) setState(() {});
@@ -42,7 +41,7 @@ class _FuncionalidadeSelfReflectionViewState extends State<FuncionalidadeSelfRef
         appBar: AppBar(
           title: Text(_docIdToEdit == null ? 'Perguntas de Reflexão' : 'Editar Reflexão'),
           actions: [
-            if (_docIdToEdit == null) // Mostra o botão de histórico apenas no modo de criação
+            if (_docIdToEdit == null) // mostra o botão de histórico apenas no modo criação
               IconButton(
                 icon: const Icon(Icons.history),
                 tooltip: 'Ver Histórico',
@@ -57,13 +56,11 @@ class _FuncionalidadeSelfReflectionViewState extends State<FuncionalidadeSelfRef
               // Adiciona um item extra na lista para o botão
               itemCount: controller.prompts.length + 1,
               itemBuilder: (context, index) {
-                // Se for o último item da lista, exibe o botão de salvar.
+                // se for o último item da lista, exibe o botão de salvar.
                 if (index == controller.prompts.length && _docIdToEdit == null) {
                   return _buildSaveButton(context, controller);
                 }
 
-                // Se o índice estiver fora do intervalo dos prompts, não renderiza nada.
-                // Isso corrige o RangeError no modo de edição.
                 if (index >= controller.prompts.length) {
                   return const SizedBox.shrink();
                 }
@@ -87,7 +84,7 @@ class _FuncionalidadeSelfReflectionViewState extends State<FuncionalidadeSelfRef
 }
 
 Widget _buildReflectionCardContent(BuildContext context, SelfReflectionController controller, int index) {
-  // No modo de edição, mostra apenas o campo que está sendo editado.
+  // no modo de edição, mostra apenas o campo que está sendo editado.
   final isEditing = controller.controllers.any((c) => c.text.isNotEmpty);
   if (isEditing && controller.controllers[index].text.isEmpty) {
     return const SizedBox.shrink(); // Oculta os outros campos

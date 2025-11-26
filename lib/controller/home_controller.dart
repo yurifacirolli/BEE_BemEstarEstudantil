@@ -31,8 +31,7 @@ class HomeController extends ChangeNotifier {
 
     // Garante que o contexto ainda é válido antes de navegar.
     if (context.mounted) {
-      // Navega para a tela de login e remove todas as rotas anteriores da pilha.
-      // Isso impede que o usuário volte para a tela home usando o botão "voltar".
+      // Navega para a tela de login e remove todas as rotas anteriores da pilha
       Navigator.of(context)
           .pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
     }
